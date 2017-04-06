@@ -425,7 +425,7 @@ module.exports =
 
         launchers:
 
-            title: "List of launchers by extension"
+            title: "List of programs by extension"
             description: "See the readme for more information"
             type: "string"
             order: 5
