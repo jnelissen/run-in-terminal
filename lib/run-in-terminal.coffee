@@ -235,18 +235,18 @@ switch require("os").platform()
 
     when "darwin"
 
-        default_launchfile = """osascript -e 'tell application \"Terminal\"' -e 'activate' -e 'tell application \"Terminal\" to do script \"cd \\\"{working_directory}\\\" && {launcher} \\\"{file_path}\\\" \"' -e 'end tell'"""
+        default_launchfile = """osascript -e 'tell application \"Terminal\"' -e 'activate' -e 'tell application \"Terminal\" to do script \"cd \\\"{working_directory}\\\" && \\\"{launcher}\\\" \\\"{file_path}\\\" \"' -e 'end tell'"""
         default_launchdir = """osascript -e 'tell application \"Terminal\"' -e 'activate' -e 'tell application \"Terminal\" to do script \"cd \\\"{working_directory}\\\" \"' -e 'end tell'"""
 
     when "win32"
 
-        default_launchfile = 'start /D "{working_directory}" C:\\Windows\\System32\\cmd.exe /u /k "{launcher}" "{file_path}" {args}'
-        default_launchdir = 'start /D "{working_directory}" C:\\Windows\\System32\\cmd.exe /u /k'
+        default_launchfile = """start /D "{working_directory}" C:\\Windows\\System32\\cmd.exe /u /k "{launcher}" "{file_path}" {args}"""
+        default_launchdir = """start /D "{working_directory}" C:\\Windows\\System32\\cmd.exe /u /k"""
 
     else
 
-        default_launchfile = 'your-favorite-terminal --foo --bar "{working_directory}" --execute "{launcher}" "{file_path}" {args}'
-        default_launchdir = 'your-favorite-terminal --foo --bar "{working_directory}"'
+        default_launchfile = """your-favorite-terminal --foo --bar "{working_directory}" --execute "{launcher}" "{file_path}" {args}"""
+        default_launchdir = """your-favorite-terminal --foo --bar "{working_directory}\""""
 
 module.exports =
 
